@@ -1,49 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Page</title>
 </head>
-
 <body>
-    <h2>Login Here!!!</h2>
-    <input type="email" id="email" placeholder="Enter your email">
-    <input type="password" id="password" placeholder="Enter your password here">
-    <button type="submit" onclick="validateLogin()">Login</button>
+    <script src="./login.script.js"></script>
+    <h1>Login here</h1>
+    <input id="email" type="text" placeholder="Enter Email..." required/>
+    <input id="pass" type="password" placeholder="Enter password..." required/>
+    <button onclick="handleLogin() ">Login</button>
 </body>
-<script>
-    const email = document.getElementById('email');
-    const pass = document.getElementById('pass');
-    const payload = {
-        email,
-        pass
-    }
-    const validateLogin = () => {
-        const email = document.getElementById('email').value;
-        const pass = document.getElementById('password').value;
-        const payload = {
-            email,
-            pass
-        }
-        console.log(payload);
-        const url = 'https://odd-jade-rhinoceros-sari.cyclic.app/users/login';
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-
-        }).then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
-</script>
-
 </html>
